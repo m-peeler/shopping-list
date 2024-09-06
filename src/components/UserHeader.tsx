@@ -1,4 +1,4 @@
-import { CustomCheckbox } from './CustomInput.tsx';
+import { CustomCheckbox } from "./CustomCheckbox.tsx";
 import { useAppDispatch, useAppSelector } from '../reduxState/reduxHooks.ts';
 import { updatePreferences } from '../reduxState/entriesSlice.ts';
 import { UserNameDisplay } from './UserNameDisplay.tsx';

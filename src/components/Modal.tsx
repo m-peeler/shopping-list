@@ -1,6 +1,6 @@
+import { JSXElementConstructor, ReactElement, ReactNode, ReactPortal, useEffect, useRef, useState } from 'react';
 import { faXmarkCircle } from '@fortawesome/free-regular-svg-icons/faXmarkCircle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { JSXElementConstructor, ReactElement, ReactNode, ReactPortal, useEffect, useRef, useState } from 'react';
 
 export function Modal(props: { 
   openModal: boolean; 

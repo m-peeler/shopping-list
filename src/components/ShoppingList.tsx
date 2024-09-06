@@ -1,7 +1,8 @@
-import { useAppDispatch, useAppSelector } from '../reduxState/reduxHooks.ts';
 import { useCallback, useState } from 'react';
+import { ShoppingListEntry } from './ShoppingListEntry.tsx';
+import { ShoppingListEntryInput } from './ShoppingListEntryInput.tsx';
+import { useAppDispatch, useAppSelector } from '../reduxState/reduxHooks.ts';
 import { isShoppingListItem } from '../responseValidation/parseItemList.ts';
-import { ShoppingListEntry, ShoppingListEntryInput } from './ShoppingListEntry.tsx';
 import { deleteEntry, submitEntry } from '../reduxState/entriesSlice.ts';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faSpinner } from '@fortawesome/free-solid-svg-icons';

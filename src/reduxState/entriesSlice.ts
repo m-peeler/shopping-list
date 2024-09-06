@@ -1,6 +1,7 @@
+import axios from "axios";
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { ListResponse, ListResponseEntry, Malformed, ShoppingListItem, parseItemListResponse } from "../responseValidation/parseItemList";
-import axios from "axios";
+import { RootState } from "./store";
 
 export type Profile = {
     showPurchased: boolean,
@@ -25,7 +26,7 @@ function filterData(itemId: number) : ((v: ListResponseEntry) => boolean ) {
 export const setUsername = createAsyncThunk(
     'remoteData/getEntries',
     async (username: string | undefined, {getState, rejectWithValue}) => {
-        const {remoteData: {apiLocation, profile: {username: stateUsername}}} = getState() as {remoteData: SliceType};
+        const {remoteData: {apiLocation, profile: {username: stateUsername}}} = getState() as RootState;
         try {
             const query = `${apiLocation}/get-list?user-name=${username === undefined ? stateUsername : username}`
             const resp = await axios.get(query);
@@ -42,7 +43,7 @@ export const submitEntry = createAsyncThunk(
     'remoteData/submitEntry',
     // The payload creator
     async (args: {itemName: string}, {getState, rejectWithValue}) => {
-      const {remoteData} = getState() as {remoteData: SliceType};
+      const {remoteData} = getState() as RootState;
       if (remoteData.profile.username === undefined) return rejectWithValue({err: "No username currently set."});
       if ( args.itemName.length < 1) return rejectWithValue({err: "No value provided for item name."})
       try {
@@ -65,7 +66,7 @@ export const deleteEntry = createAsyncThunk(
     'remoteData/deleteEntry',
     // The payload creator
     async (args: {itemId: number}, {getState, rejectWithValue}) => {
-      const {remoteData} = getState() as {remoteData: SliceType};
+      const {remoteData} = getState() as RootState;
       if (remoteData.profile.username === undefined) return rejectWithValue({err: "No username currently set."});
       try {
         await axios.delete(
@@ -80,7 +81,7 @@ export const deleteEntry = createAsyncThunk(
 export const markPurchased = createAsyncThunk(
     "remoteData/markPurchased",
     async (itemId: number, {getState, rejectWithValue}) => {
-        const {remoteData: {profile: {username}, apiLocation}} = getState() as {remoteData: SliceType}
+        const {remoteData: {profile: {username}, apiLocation}} = getState() as RootState;
         const body = { "user-name": username, "item-id": itemId, purchased: true };
         try {
             await axios.patch(`${apiLocation}/mark-purchased`, body);
@@ -94,7 +95,7 @@ export const markPurchased = createAsyncThunk(
 export const markUnpurchased = createAsyncThunk(
     "remoteData/markUnpurchased",
     async (itemId: number, {getState, rejectWithValue}) => {
-        const {remoteData: {profile: {username}, apiLocation}} = getState() as {remoteData: SliceType}
+        const {remoteData: {profile: {username}, apiLocation}} = getState() as RootState;
         const body = { "user-name": username, "item-id": itemId, purchased: false };
         try {
             await axios.patch(`${apiLocation}/mark-purchased`, body);
@@ -108,7 +109,7 @@ export const markUnpurchased = createAsyncThunk(
 export const updatePreferences = createAsyncThunk(
     "remoteData/updatePreferences",
     async (profile: Profile, {getState, rejectWithValue}) => {
-        const {remoteData: {apiLocation}} = getState() as {remoteData: SliceType};
+        const {remoteData: {apiLocation}} = getState() as RootState;
         if (profile.username === undefined) return rejectWithValue({error: "No username provided."})
         const body = { "user-name": profile.username as string, "show-purchased": profile.showPurchased as boolean}
         

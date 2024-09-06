@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { CustomTextInput } from './CustomInput.tsx';
+import { useCookies } from 'react-cookie';
+import { CustomTextInput } from './CustomTextInput.tsx';
 import { useAppDispatch } from '../reduxState/reduxHooks.ts';
 import { clearUsername, setUsername } from '../reduxState/entriesSlice.ts';
-import { useCookies } from 'react-cookie';
 
 export function UsernameSubmissionPortal(props: { closeModal: () => void; }) {
   const [inputUserName, setInputUserName] = useState<string>('');
@@ -12,6 +12,7 @@ export function UsernameSubmissionPortal(props: { closeModal: () => void; }) {
   const closeModalAndSubmitUsername = () => {
     const newName = inputUserName === "" || inputUserName == undefined ? undefined : inputUserName;
     dispatch(newName !== undefined ? setUsername(newName) : clearUsername());
+    setInputUserName("")
     setCookies("username", newName, { path: "/" });
     props.closeModal();
   };
