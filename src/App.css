@@ -1,0 +1,76 @@
+#root {
+  max-width: 1280px;
+  margin: auto;
+  text-align: center;
+  color: var(--text-50);
+  overflow: hidden;
+}
+
+::placeholder {
+  color: var(--text-300);
+  border-color: var(--text-200);
+}
+
+.card {
+  flex-direction: column; 
+  width: clamp(300px, 40vw, 400px);
+  height: 75vh;
+  overflow-y: scroll;
+  position: relative;
+  padding: 2em;
+  background-color: var(--primary-500);
+  border-radius: 10px;
+}
+
+.user-header {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  column-gap: 40px;
+  grid-template-columns: repeat(2, calc(1em + clamp(140px, calc(20vw - 10px), 190px)));
+  justify-items: center;
+}
+
+@keyframes fadeIn {
+  0% {
+    height: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    opacity: 0;
+  }
+}
+
+::-webkit-scrollbar {
+  position: absolute;
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 3px;
+  width: 8px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: var(--primary-600);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-500); 
+}
+
+.list-item {
+  align-items: center; 
+  transition: visibility 0.5s, height 0.5s, opacity 0.5s, margin-top 0.5s, margin-bottom 0.5s;
+  justify-content: space-between;
+  display: flex;
+  height: 3em;
+  margin: .2em;
+}
+
+.animate-in {
+  animation: fadeIn 0.5s;
+}

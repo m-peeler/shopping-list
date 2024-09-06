@@ -1,0 +1,157 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: var(--text-900);
+  background-color: var(--background-950);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --text-50: #f6f2ef;
+  --text-100: #ece6df;
+  --text-200: #daccbe;
+  --text-300: #c7b39e;
+  --text-400: #b5997d;
+  --text-500: #a2805d;
+  --text-600: #82664a;
+  --text-700: #614d38;
+  --text-800: #413325;
+  --text-900: #201a13;
+  --text-950: #100d09;
+  
+  --background-50: #f6f2ef;
+  --background-100: #ece5df;
+  --background-200: #dacbbe;
+  --background-300: #c7b09e;
+  --background-400: #b5967d;
+  --background-500: #a27c5d;
+  --background-600: #82634a;
+  --background-700: #614a38;
+  --background-800: #413225;
+  --background-900: #201913;
+  --background-950: #100c09;
+  
+  --primary-50: #f6f2ef;
+  --primary-100: #ede6de;
+  --primary-200: #dacdbe;
+  --primary-300: #c8b49d;
+  --primary-400: #b69b7c;
+  --primary-500: #a3825c;
+  --primary-600: #836849;
+  --primary-700: #624e37;
+  --primary-800: #413425;
+  --primary-900: #211a12;
+  --primary-950: #100d09;
+  
+  --secondary-50: #f3f6ef;
+  --secondary-100: #e7edde;
+  --secondary-200: #d0dbbd;
+  --secondary-300: #b8c99c;
+  --secondary-400: #a1b77b;
+  --secondary-500: #89a45b;
+  --secondary-600: #6e8448;
+  --secondary-700: #526336;
+  --secondary-800: #374224;
+  --secondary-900: #1b2112;
+  --secondary-950: #0e1009;
+  
+  --accent-50: #f2f6ef;
+  --accent-100: #e4edde;
+  --accent-200: #c9dbbd;
+  --accent-300: #aec99c;
+  --accent-400: #93b77b;
+  --accent-500: #78a45b;
+  --accent-600: #608448;
+  --accent-700: #486336;
+  --accent-800: #304224;
+  --accent-900: #182112;
+  --accent-950: #0c1009;
+}
+
+a {
+  font-weight: 500;
+  color: var(--accent-500);
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--accent-300);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 2px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--primary-700);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: var(--accent-600);
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto var(--secondary-500);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: var(--text-900);
+    background-color: var(--background-300);
+    --active-color: var(--accent-600)
+  }
+  a:hover {
+    color: var(--secondary-600);
+  }
+  button {
+    background-color: var(--primary-400);
+  }
+}
+
+@font-face{
+  font-family: "Argent";
+  font-weight: 400;
+  src:local("Argent"),
+  url('./assets/fonts/Argent/ArgentCF-Regular.ttf') 
+}
+
+div {
+  color: var(--text-900);
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+input {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h2   {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: italic;
+}
