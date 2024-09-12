@@ -6,6 +6,7 @@ export function UserNameDisplay(props: { username?: string; launchModal: () => v
       marginBottom: "2vh",
       overflow: "hidden",
       textOverflow: "ellipsis",
+      borderRadius: "5px",
       textWrap: "nowrap",
       color: "inherit",
       width: "100%",

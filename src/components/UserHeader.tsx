@@ -18,11 +18,11 @@ export function UserHeader(props: { modalOpened: boolean; launchModal: () => voi
           padding: 10,
           marginTop: "2vh",
           marginBottom: "2vh",
-          borderRadius: "10px",
+          borderRadius: "5px",
           alignItems: "center",
           width: "100%"
         }} 
-        accentColor={"var(--accent-700)"} 
+        accentColor={"var(--accent-600)"} 
         ariaLabel="Hide all marked entries" 
         display="Hide Marked Items" 
         name="toggle-checkmark" 
